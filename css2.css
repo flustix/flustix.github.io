@@ -1,0 +1,8 @@
+@font-face {
+  font-family: UniSans;
+  src: url(/font/UniSansHeavy.otf);
+}
+
+.fluxres-title {
+  font-family: UniSans;
+}
