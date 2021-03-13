@@ -1,0 +1,54 @@
+@font-face {
+  font-family: UniSans;
+  src: url(UniSansHeavy.otf);
+}
+
+::selection {
+  background-color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #101318
+}
+
+.title {
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.title-txt {
+  color: #fff;
+  font-family: UniSans;
+}
+
+.title-comment {
+  color: #fff;
+  font-family: UniSans;
+}
+
+.links {
+  text-align: center;
+  padding-top: 75px;
+}
+
+.flustixres-img {
+  width: 128px;
+  animation: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.periodic-img {
+  width: 128px;
+  animation: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.secret {
+  color:  #101318;
+  font-family: UniSans;
+  text-decoration: none;
+}
