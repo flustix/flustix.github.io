@@ -16,6 +16,10 @@ body {
   background-color: #101318
 }
 
+a {
+  text-decoration: none;
+}
+
 .title {
   text-align: center;
   padding-top: 5%;
