@@ -1,8 +1,3 @@
-@font-face {
-  font-family: UniSans;
-  src: url(UniSansHeavy.otf);
-}
-
 ::selection {
   background-color: #fff;
 }
@@ -28,12 +23,12 @@ a {
 
 .title-txt {
   color: #fff;
-  font-family: UniSans;
+  font-family: UniSansHeavyCaps;
 }
 
 .title-comment {
   color: #fff;
-  font-family: UniSans;
+  font-family: UniSansHeavyCaps;
 }
 
 .links {
@@ -53,6 +48,6 @@ a {
 
 .secret {
   color:  #101318;
-  font-family: UniSans;
+  font-family: UniSansHeavyCaps;
   text-decoration: none;
 }

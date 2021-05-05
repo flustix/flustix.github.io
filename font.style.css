@@ -1,0 +1,16 @@
+/*
+@font-face {
+  src: url();
+  font-family:
+}
+*/
+
+@font-face {
+  src: url(assets/font/UniSansHeavyCaps.otf);
+  font-family: UniSansHeavyCaps;
+}
+
+@font-face {
+  src: url(assets/font/Marshmallow.ttf);
+  font-family: Marshmallow;
+}
