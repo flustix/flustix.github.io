@@ -11,6 +11,13 @@
 }
 
 @font-face {
+  src: url(assets/font/ColorTube.ttf);
+  font-family: ColorTube;
+}
+
+/* deactivate stuff here
+
+@font-face {
   src: url(assets/font/Marshmallow.ttf);
   font-family: Marshmallow;
 }

@@ -23,22 +23,22 @@ a {
 
 .title {
   color: #eb6b6f;
-  font-family: Marshmallow;
+  font-family: ColorTube;
 }
 
 .comment {
   color: #f9a875;
-  font-family: Marshmallow;
+  font-family: ColorTube;
 }
 
 .links {
   text-align: center;
-  padding-top: 75px;
+  padding-top: 50px;
 }
 
 .na {
   color: #eb6b6f;
-  font-family: Marshmallow;
+  font-family: ColorTube;
   padding-bottom: 5px;
 }
 
@@ -66,3 +66,5 @@ a {
 }
 
 /* hover */
+
+/* pretty empty here lol */
