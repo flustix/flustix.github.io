@@ -18,7 +18,7 @@ a {
 .title-box {
   text-align: center;
   padding-top: 5%;
-  padding-bottom: 5%;
+  padding-bottom: 2.5%;
 }
 
 .title {
@@ -33,13 +33,14 @@ a {
 
 .links {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .na {
   color: #eb6b6f;
   font-family: ColorTube;
   padding-bottom: 5px;
+  font-size: 7px;
 }
 
 .java-img {
