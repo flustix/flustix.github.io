@@ -3,17 +3,19 @@
 }
 
 .news-title {
-  font-size:1.875rem;
+  font-size:1rem;
   padding:1rem;
   font-weight: bold !important;
   color: white !important;
+  font-family: ColorTube;
 }
 
 .news-text {
-  font-size:0.875rem;
+  font-size:0.5rem;
   padding: 1rem;
   font-weight: bold !important;
   color: white !important;
+  font-family: ColorTube;
 }
 
 .news-text-content {
