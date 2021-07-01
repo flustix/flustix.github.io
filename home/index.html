@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>FlustixRes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../font.style.css">
+  <link rel="stylesheet" href="css2.css">
+  <link rel="stylesheet" href="yes.css">
+</head>
+
+<body>
+  <div class="stuff">
+
+    <div class="title-box">
+      <h2 class="title">FlustixRes</h1>
+        <h5 class="comment">The ultimate Vanilla-Styled Minecraft Texturepack</h4>
+    </div>
+
+    <div class="links" id="row1">
+      <a href="https://github.com//FoxStudios/FlustixRes/blob/master/packed/Java/FlustixRes_Java_1.5.zip?raw=true">
+        <img src="assets/java.png" class="java-img" title="Java Edition">
+      </a>
+      <a href="https://github.com//FoxStudios/FlustixRes/blob/master/packed/Bedrock/FlustixRes_Bedrock_1.5.zip?raw=true">
+        <img src="assets/bedrock.png" class="bedrock-img" title="Bedrock Edition">
+      </a>
+    </div>
+    <div class="links" id="row2">
+      <p class="na">Extra Stuff</p>
+      <p class="na">Blurred Stuff is not available yet</p>
+      <a href="">
+        <img src="assets/hypixelskyblock.png" class="hypixelskyblock-img" title="Coming Soon™">
+      </a>
+      <a href="">
+        <img src="assets/pvpport.png" class="pvpport-img" title="Coming Soon™">
+      </a>
+      <a href="">
+        <img src="assets/modsupport.png" class="modsupport-img" title="Coming Soon™">
+      </a>
+    </div>
+    <div class="">
+      <section>
+        <div class="container mx-auto">
+          <div id="news_rowcontainer">
+            <div class="ultimate-flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4" id="news_row1">
+              <!--ELEMENT IN CASE YOU NEED TO MODIFY SOME SHIT
+              DO NOT REMOVE PLS
+              <div class="news-content sm:-mt-6 shadow-lg" style="background-image: url('2021-04-10_04.51.38.png')">
+                <div class="overflow-hidden shadow">
+                  <div class="news-title">{title}</div>
+                  <ul class="news-text">
+                    <p class="news-text-content">bottom text</p>
+                  </ul>
+                </div>
+              </div>
+              yeet-->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const getJSON = async url => {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          return error;
+        }
+      }
+
+      console.log("Fetching data...");
+      getJSON("news.json").then(data => {
+        var news = data.news;
+
+        var nc = 0;
+        var line = 1;
+
+        news.forEach(kek => {
+          console.log("1: " + nc);
+          nc++;
+          console.log("2: " + nc);
+          if (nc >= 3) {
+            nc = 0;
+            line = line + 1;
+            console.log("3: " + nc);
+          }
+          console.log("yes:" + line);
+          addNewsBlock(line, kek);
+        });
+        console.log("count: " + data.news.length);
+      }).catch(error => {
+        console.error("Failed to fetch news: " + error);
+      });
+
+      function addNewsBlock(line, data) {
+        console.log("add: " + row);
+        var title = data.title;
+        var text = data.text.replace("\n", "<br>");
+        var image = data.bgimg;
+        var url = data.url;
+
+        var row = document.getElementById("news_row" + line);
+        if (row == null) {
+          var newrow = document.createElement("div");
+          newrow.classList.add("ultimate-flex");
+          newrow.classList.add("flex-col");
+          newrow.classList.add("sm:flex-row");
+          newrow.classList.add("justify-center");
+          newrow.classList.add("pt-12");
+          newrow.classList.add("my-12");
+          newrow.classList.add("sm:my-4");
+          newrow.id = "news_row" + line;
+          document.getElementById("news_rowcontainer").appendChild(newrow);
+
+          row = document.getElementById("news_row" + line);
+        }
+
+        var container = document.createElement("div");
+        container.classList.add("news-content");
+        container.classList.add("sm:-mt-6");
+        container.classList.add("shadow-lg");
+        container.style.backgroundImage = "url('" + image + "')";
+        container.innerHTML = "<div class=\"overflow-hidden shadow\">" +
+          "<div class=\"news-title\">" + title + "</div>" +
+          "<ul class=\"news-text\">" +
+          "<p class=\"news-text-content\">" + text + "</p>" +
+          "</ul>" +
+          "</div>";
+
+        var containercontainer = document.createElement("a");
+        containercontainer.href = url;
+        containercontainer.appendChild(container);
+        row.appendChild(containercontainer);
+      }
+
+    </script>
+
+  </div>
+</body>
+
+</html>

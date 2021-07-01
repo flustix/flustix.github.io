@@ -1,53 +1,57 @@
-::selection {
-  background-color: #fff;
-}
-
-* {
-  margin: 0;
-  padding: 0;
+:root {
+    --bg-color: #101318;
+    --typewriter-speed: 2s;
+    --typewriter-steps: 17;
 }
 
 body {
-  background-color: #101318
-}
-
-a {
-  text-decoration: none;
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Source Code pro";
+    display: grid;
+    text-align: center;
+    place-content: center;
+    background-color: var(--bg-color);
 }
 
 .title {
-  text-align: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
+    font-size: 55;
+    position: relative;
+    color: white;
 }
 
-.title-txt {
-  color: #fff;
-  font-family: UniSansHeavyCaps;
+.subtitle {
+    color: white;
+    font-size: 25;
+    transform: translateY(3rem);
+    opacity: 0;
+    animation: subtitleFade 2s ease var(--typewriter-speed) forwards;
 }
 
-.title-comment {
-  color: #fff;
-  font-family: UniSansHeavyCaps;
+.title::before,
+.title::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
-.links {
-  text-align: center;
-  padding-top: 75px;
+.title::before {
+    background: #101318;
+    animation: typewriter var(--typewriter-speed) steps(var(--typewriter-steps)) forwards;
 }
 
-.flustixres-img {
-  width: 128px;
-  animation: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+@keyframes typewriter {
+    to {
+        left: 100%
+    }
 }
 
-.periodic-img {
-  width: 128px;
-  animation: cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.secret {
-  color:  #101318;
-  font-family: UniSansHeavyCaps;
-  text-decoration: none;
+@keyframes subtitleFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -1,0 +1,84 @@
+.ultimate-flex {
+  display:flex
+}
+
+.news-title {
+  font-size:1rem;
+  padding:1rem;
+  font-weight: bold !important;
+  color: white !important;
+  font-family: ColorTube;
+}
+
+.news-text {
+  font-size:0.5rem;
+  padding: 1rem;
+  font-weight: bold !important;
+  color: white !important;
+  font-family: ColorTube;
+}
+
+.news-text-content {
+  padding-bottom:0rem;
+}
+.news-content {
+  border-radius:.5rem;
+  margin-left:8px;
+  margin-right:8px;
+  width: 25rem;
+  height: 10rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.news-container {
+  display: flex;
+  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+}
+/* STOLEN FROM TAILWIND.CSS */
+
+.flex-col {
+ flex-direction:column
+}
+
+.sm\:flex-row {
+ flex-direction:row
+}
+
+.justify-center {
+ justify-content:center
+}
+
+.pt-12 {
+ padding-top:3rem
+}
+
+.my-12 {
+ margin-top:3rem;
+ margin-bottom:3rem
+}
+
+.sm\:my-4 {
+ margin-top:1rem;
+ margin-bottom:1rem
+}
+
+.sm\:-mt-6 {
+ margin-top:-1.5rem
+}
+
+.container {
+ width:100%
+}
+
+.mx-auto {
+ margin-left:auto;
+ margin-right:auto
+}
+
+.shadow-lg {
+ box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)
+}
