@@ -9,9 +9,9 @@
 
 body {
   background-color: #101318;
-  opacity: 0;
-  animation: slideIntoDMs 2s ease forwards;
-  transform: translateY(10rem);
+  
+  
+  
 }
 
 a {
@@ -22,6 +22,27 @@ a {
   text-align: center;
   padding-top: 5%;
   padding-bottom: 2.5%;
+  opacity: 0;
+  transform: translateY(10rem);
+  animation: slideIntoDMs 2s ease forwards;
+}
+
+#row1 {
+  opacity: 0;
+  transform: translateY(10rem);
+  animation: slideIntoDMs 2s ease 1s forwards;
+}
+
+#row2 {
+  opacity: 0;
+  transform: translateY(10rem);
+  animation: slideIntoDMs 2s ease 2s forwards;
+}
+
+#news {
+  opacity: 0;
+  transform: translateY(10rem);
+  animation: slideIntoDMs 2s ease 3s forwards;
 }
 
 .title {
