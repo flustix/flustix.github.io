@@ -46,7 +46,7 @@
       <section>
         <div class="container mx-auto">
           <div id="news_rowcontainer">
-            <div class="ultimate-flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4" id="news_row1">
+            <div class="ultimate-flex flex-col sm:flex-row justify-center row-padding my-12 sm:my-4" id="news_row1">
               <!--ELEMENT IN CASE YOU NEED TO MODIFY SOME SHIT
               DO NOT REMOVE PLS
               <div class="news-content sm:-mt-6 shadow-lg" style="background-image: url('2021-04-10_04.51.38.png')">
@@ -68,81 +68,82 @@
       const getJSON = async url => {
         try {
           const response = await fetch(url);
-          if (!response.ok) {
+          if(!response.ok) {
             throw new Error(response.statusText);
           }
           const data = await response.json();
           return data;
-        } catch (error) {
+        } catch(error) {
           return error;
         }
       }
 
-      console.log("Fetching data...");
+      console.log("fetching news...");
       getJSON("news.json").then(data => {
         var news = data.news;
 
         var nc = 0;
         var line = 1;
 
-        news.forEach(kek => {
-          console.log("1: " + nc);
+        news.forEach(article => {
           nc++;
-          console.log("2: " + nc);
-          if (nc >= 3) {
-            nc = 0;
-            line = line + 1;
-            console.log("3: " + nc);
+          if(nc >= 4) {
+            line = line+1;
+            nc = 1;
           }
-          console.log("yes:" + line);
-          addNewsBlock(line, kek);
+          addNewsBlock(line, article);
         });
-        console.log("count: " + data.news.length);
+        console.log("fetched news, size: "+data.news.length);
       }).catch(error => {
-        console.error("Failed to fetch news: " + error);
+        console.error("failed to fetch news: "+error);
       });
 
       function addNewsBlock(line, data) {
-        console.log("add: " + row);
         var title = data.title;
         var text = data.text.replace("\n", "<br>");
         var image = data.bgimg;
         var url = data.url;
 
-        var row = document.getElementById("news_row" + line);
-        if (row == null) {
+        var row = document.getElementById("news_row"+line);
+        if(row == null) {
           var newrow = document.createElement("div");
           newrow.classList.add("ultimate-flex");
           newrow.classList.add("flex-col");
           newrow.classList.add("sm:flex-row");
           newrow.classList.add("justify-center");
-          newrow.classList.add("pt-12");
-          newrow.classList.add("my-12");
+          newrow.classList.add("row-padding");
           newrow.classList.add("sm:my-4");
-          newrow.id = "news_row" + line;
+          newrow.id = "news_row"+line;
           document.getElementById("news_rowcontainer").appendChild(newrow);
 
-          row = document.getElementById("news_row" + line);
+          row = document.getElementById("news_row"+line);
         }
 
         var container = document.createElement("div");
         container.classList.add("news-content");
         container.classList.add("sm:-mt-6");
         container.classList.add("shadow-lg");
-        container.style.backgroundImage = "url('" + image + "')";
-        container.innerHTML = "<div class=\"overflow-hidden shadow\">" +
-          "<div class=\"news-title\">" + title + "</div>" +
-          "<ul class=\"news-text\">" +
-          "<p class=\"news-text-content\">" + text + "</p>" +
-          "</ul>" +
-          "</div>";
+        container.style.backgroundImage = "url('"+image+"')";
+        container.innerHTML = "<div class=\"overflow-hidden shadow\">"+
+        "<div class=\"news-title\">"+title+"</div>"+
+          "<ul class=\"news-text\">"+
+           "<p class=\"news-text-content\">"+text+"</p>"+
+          "</ul>"+
+        "</div>";
 
+        if(url != null || url != "") {
+          container.onclick = function() { window.open(url); };
+          container.style.cursor = "pointer";
+          container.classList.add("news-content-with-link");
+        }
+        /* // this doesn't work as expected, we use JS instead...
         var containercontainer = document.createElement("a");
+        containercontainer.style.display = "block";
         containercontainer.href = url;
         containercontainer.appendChild(container);
-        row.appendChild(containercontainer);
+        */
+        row.appendChild(container);
       }
-
     </script>
 
   </div>
