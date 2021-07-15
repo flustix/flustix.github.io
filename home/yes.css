@@ -32,12 +32,24 @@
   background-size: cover;
 }
 
+.news-content-with-link {
+  transition: all .3s ease-in-out;
+}
+.news-content-with-link:hover {
+  transform: scale(1.025);
+}
+
 .news-container {
   display: flex;
   flex-direction: row;
   flex-direction: column;
   justify-content: center;
 }
+
+.row-padding {
+ padding-top:2rem
+}
+
 /* STOLEN FROM TAILWIND.CSS */
 
 .flex-col {
