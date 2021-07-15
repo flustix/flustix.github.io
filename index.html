@@ -10,7 +10,41 @@
 
 <body onclick="location='home'">
     <h1 onclick="location='home'" class="title">Hi, i'm Flustixx.</h1>
-    <p onclick="location='home'" class="subtitle">And i'm a pixel artist</p>
+    <p onclick="location='home'" class="subtitle">An error occured trying to load the subtitle.</p>
+
+    <script>
+      const getJSON = async url => {
+        try {
+          const response = await fetch(url);
+          if(!response.ok) {
+            throw new Error(response.statusText);
+          }
+          const data = await response.json();
+          return data;
+        } catch(error) {
+          return error;
+        }
+      }
+
+      getJSON("subtitles.json").then(data => {
+        var subtitles = data.subtitles;
+
+        console.log("fetched subtitles, size: "+data.subtitles.length);
+
+        var subtitle_index = Math.floor(Math.random()*subtitles.length);
+        var subtitle = subtitles[subtitle_index];
+
+        var subtitle_element = document.getElementsByClassName("subtitle")[0];
+
+        subtitle_element.innerHTML = subtitle.text;
+        if(subtitle.color != null || subtitle.color != undefined) {
+          subtitle_element.style.color = subtitle.color;
+        }
+        console.log("picked subtitle "+subtitle_index+": "+subtitle.text);
+      }).catch(error => {
+        console.error("failed to fetch subtitles: "+error);
+      });
+    </script>
 
     <script>
         var timer = setTimeout(function() {
