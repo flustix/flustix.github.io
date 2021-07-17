@@ -42,7 +42,7 @@ a {
 #news {
   opacity: 0;
   transform: translateY(10rem);
-  animation: slideIntoDMs 2s ease 3s forwards;
+  animation: slideIntoDMs 2s ease 2s forwards;
 }
 
 .title {
