@@ -1,8 +1,8 @@
 {
   "news": [{
-      "title": "Java Update 1.5",
+      "title": "Java Update 1.6",
       "bgimg": "assets/news-img/java-news.png",
-      "text": "Update 1.5 released for Java",
+      "text": "Update 1.6 released for Java",
       "url": ""
     },
     {
