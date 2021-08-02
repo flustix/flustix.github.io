@@ -9,9 +9,16 @@
 
 body {
   background-color: #101318;
-  
-  
-  
+  max-height: 80%;
+}
+
+.stuff {
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: blendIn 2s ease forwards;
+  opacity: 0;
+  background-image: url(assets/bg.png);
+  max-height: 80%;
 }
 
 a {
@@ -24,13 +31,13 @@ a {
   padding-bottom: 2.5%;
   opacity: 0;
   transform: translateY(10rem);
-  animation: slideIntoDMs 2s ease forwards;
+  animation: slideIntoDMs 2s ease 1s forwards;
 }
 
 #row1 {
   opacity: 0;
   transform: translateY(10rem);
-  animation: slideIntoDMs 2s ease 1s forwards;
+  animation: slideIntoDMs 2s ease 2s forwards;
 }
 
 #row2 {
@@ -42,7 +49,7 @@ a {
 #news {
   opacity: 0;
   transform: translateY(10rem);
-  animation: slideIntoDMs 2s ease 2s forwards;
+  animation: slideIntoDMs 2s ease 3s forwards;
 }
 
 .title {
@@ -94,5 +101,11 @@ a {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes blendIn {
+  to {
+    opacity: 1;
   }
 }
