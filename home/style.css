@@ -1,5 +1,5 @@
 ::selection {
-  background-color: #fff;
+  background-color: #ffffff44;
 }
 
 * {
@@ -9,16 +9,28 @@
 
 body {
   background-color: #101318;
-  max-height: 80%;
+}
+
+.bg {
+  background-image: url(assets/bg.png);
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: blendIn 2s ease forwards;
+  height: 100vh;
+  background-size: cover;
 }
 
 .stuff {
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: absolute;
   animation: blendIn 2s ease forwards;
+  background-color: #10131888;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
   opacity: 0;
-  background-image: url(assets/bg.png);
-  max-height: 80%;
 }
 
 a {

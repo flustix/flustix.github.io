@@ -14,141 +14,143 @@
 </head>
 
 <body>
-  <div class="stuff">
+  <div class="bg">
+    <div class="stuff">
 
-    <div class="title-box">
-      <h2 class="title">FlustixRes</h1>
-        <h5 class="comment">The ultimate Vanilla-Styled Minecraft Texturepack</h4>
-    </div>
+      <div class="title-box">
+        <h2 class="title">FlustixRes</h1>
+          <h5 class="comment">The ultimate Vanilla-Styled Minecraft Texturepack</h4>
+      </div>
 
-    <div class="links" id="row1">
-      <a href="https://github.com//FoxStudios/FlustixRes/blob/master/packed/Java/FlustixRes_Java_v1.6.zip?raw=true">
-        <img src="assets/java.png" class="java-img" title="Java Edition">
-      </a>
-      <a href="https://github.com//FoxStudios/FlustixRes/blob/master/packed/Bedrock/FlustixRes_Bedrock_1.5.zip?raw=true">
-        <img src="assets/bedrock.png" class="bedrock-img" title="Bedrock Edition">
-      </a>
-    </div>
-    <!--
-    <div class="links" id="row2">
-      <p class="na">Extra Stuff</p>
-      <p class="na">Blurred Stuff is not available yet</p>
-      <a href="">
-        <img src="assets/hypixelskyblock.png" class="hypixelskyblock-img" title="Coming Soon™">
-      </a>
-      <a href="">
-        <img src="assets/pvpport.png" class="pvpport-img" title="Coming Soon™">
-      </a>
-      <a href="">
-        <img src="assets/modsupport.png" class="modsupport-img" title="Coming Soon™">
-      </a>
-    </div>-->
+      <div class="links" id="row1">
+        <a href="https://github.com//FoxStudios/FlustixRes/blob/master/packed/Java/FlustixRes_Java_v1.6.zip?raw=true">
+          <img src="assets/java.png" class="java-img" title="Java Edition">
+        </a>
+        <a href="https://github.com//FoxStudios/FlustixRes/blob/master/packed/Bedrock/FlustixRes_Bedrock_1.5.zip?raw=true">
+          <img src="assets/bedrock.png" class="bedrock-img" title="Bedrock Edition">
+        </a>
+      </div>
+      <!--
+      <div class="links" id="row2">
+        <p class="na">Extra Stuff</p>
+        <p class="na">Blurred Stuff is not available yet</p>
+        <a href="">
+          <img src="assets/hypixelskyblock.png" class="hypixelskyblock-img" title="Coming Soon™">
+        </a>
+        <a href="">
+          <img src="assets/pvpport.png" class="pvpport-img" title="Coming Soon™">
+        </a>
+        <a href="">
+          <img src="assets/modsupport.png" class="modsupport-img" title="Coming Soon™">
+        </a>
+      </div>-->
 
-    
-    <div id="news">
-      <section>
-        <div class="container mx-auto">
-          <div id="news_rowcontainer">
-            <div class="ultimate-flex flex-col sm:flex-row justify-center row-padding my-12 sm:my-4" id="news_row1">
-              <!--ELEMENT IN CASE YOU NEED TO MODIFY SOME SHIT
-              DO NOT REMOVE PLS
-              <div class="news-content sm:-mt-6 shadow-lg" style="background-image: url('2021-04-10_04.51.38.png')">
-                <div class="overflow-hidden shadow">
-                  <div class="news-title">{title}</div>
-                  <ul class="news-text">
-                    <p class="news-text-content">bottom text</p>
-                  </ul>
+      
+      <div id="news">
+        <section>
+          <div class="container mx-auto">
+            <div id="news_rowcontainer">
+              <div class="ultimate-flex flex-col sm:flex-row justify-center row-padding my-12 sm:my-4" id="news_row1">
+                <!--ELEMENT IN CASE YOU NEED TO MODIFY SOME SHIT
+                DO NOT REMOVE PLS
+                <div class="news-content sm:-mt-6 shadow-lg" style="background-image: url('2021-04-10_04.51.38.png')">
+                  <div class="overflow-hidden shadow">
+                    <div class="news-title">{title}</div>
+                    <ul class="news-text">
+                      <p class="news-text-content">bottom text</p>
+                    </ul>
+                  </div>
                 </div>
+                yeet-->
               </div>
-              yeet-->
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
 
-    <script>
-      const getJSON = async url => {
-        try {
-          const response = await fetch(url);
-          if(!response.ok) {
-            throw new Error(response.statusText);
+      <script>
+        const getJSON = async url => {
+          try {
+            const response = await fetch(url);
+            if(!response.ok) {
+              throw new Error(response.statusText);
+            }
+            const data = await response.json();
+            return data;
+          } catch(error) {
+            return error;
           }
-          const data = await response.json();
-          return data;
-        } catch(error) {
-          return error;
         }
-      }
 
-      console.log("fetching news...");
-      getJSON("news.json").then(data => {
-        var news = data.news;
+        console.log("fetching news...");
+        getJSON("news.json").then(data => {
+          var news = data.news;
 
-        var nc = 0;
-        var line = 1;
+          var nc = 0;
+          var line = 1;
 
-        news.forEach(article => {
-          nc++;
-          if(nc >= 4) {
-            line = line+1;
-            nc = 1;
-          }
-          addNewsBlock(line, article);
+          news.forEach(article => {
+            nc++;
+            if(nc >= 4) {
+              line = line+1;
+              nc = 1;
+            }
+            addNewsBlock(line, article);
+          });
+          console.log("fetched news, size: "+data.news.length);
+        }).catch(error => {
+          console.error("failed to fetch news: "+error);
         });
-        console.log("fetched news, size: "+data.news.length);
-      }).catch(error => {
-        console.error("failed to fetch news: "+error);
-      });
 
-      function addNewsBlock(line, data) {
-        var title = data.title;
-        var text = data.text.replace("\n", "<br>");
-        var image = data.bgimg;
-        var url = data.url;
+        function addNewsBlock(line, data) {
+          var title = data.title;
+          var text = data.text.replace("\n", "<br>");
+          var image = data.bgimg;
+          var url = data.url;
 
-        var row = document.getElementById("news_row"+line);
-        if(row == null) {
-          var newrow = document.createElement("div");
-          newrow.classList.add("ultimate-flex");
-          newrow.classList.add("flex-col");
-          newrow.classList.add("sm:flex-row");
-          newrow.classList.add("justify-center");
-          newrow.classList.add("row-padding");
-          newrow.classList.add("sm:my-4");
-          newrow.id = "news_row"+line;
-          document.getElementById("news_rowcontainer").appendChild(newrow);
+          var row = document.getElementById("news_row"+line);
+          if(row == null) {
+            var newrow = document.createElement("div");
+            newrow.classList.add("ultimate-flex");
+            newrow.classList.add("flex-col");
+            newrow.classList.add("sm:flex-row");
+            newrow.classList.add("justify-center");
+            newrow.classList.add("row-padding");
+            newrow.classList.add("sm:my-4");
+            newrow.id = "news_row"+line;
+            document.getElementById("news_rowcontainer").appendChild(newrow);
 
-          row = document.getElementById("news_row"+line);
+            row = document.getElementById("news_row"+line);
+          }
+
+          var container = document.createElement("div");
+          container.classList.add("news-content");
+          container.classList.add("sm:-mt-6");
+          container.classList.add("shadow-lg");
+          container.style.backgroundImage = "url('"+image+"')";
+          container.innerHTML = "<div class=\"overflow-hidden shadow\">"+
+          "<div class=\"news-title\">"+title+"</div>"+
+            "<ul class=\"news-text\">"+
+            "<p class=\"news-text-content\">"+text+"</p>"+
+            "</ul>"+
+          "</div>";
+
+          if(url != null || url != "") {
+            container.onclick = function() { window.open(url); };
+            container.style.cursor = "pointer";
+            container.classList.add("news-content-with-link");
+          }
+          /* // this doesn't work as expected, we use JS instead...
+          var containercontainer = document.createElement("a");
+          containercontainer.style.display = "block";
+          containercontainer.href = url;
+          containercontainer.appendChild(container);
+          */
+          row.appendChild(container);
         }
+      </script>
 
-        var container = document.createElement("div");
-        container.classList.add("news-content");
-        container.classList.add("sm:-mt-6");
-        container.classList.add("shadow-lg");
-        container.style.backgroundImage = "url('"+image+"')";
-        container.innerHTML = "<div class=\"overflow-hidden shadow\">"+
-        "<div class=\"news-title\">"+title+"</div>"+
-          "<ul class=\"news-text\">"+
-           "<p class=\"news-text-content\">"+text+"</p>"+
-          "</ul>"+
-        "</div>";
-
-        if(url != null || url != "") {
-          container.onclick = function() { window.open(url); };
-          container.style.cursor = "pointer";
-          container.classList.add("news-content-with-link");
-        }
-        /* // this doesn't work as expected, we use JS instead...
-        var containercontainer = document.createElement("a");
-        containercontainer.style.display = "block";
-        containercontainer.href = url;
-        containercontainer.appendChild(container);
-        */
-        row.appendChild(container);
-      }
-    </script>
-
+    </div>
   </div>
 </body>
 
