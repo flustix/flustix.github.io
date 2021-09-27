@@ -1,2 +1,2 @@
 # Flustix' Website
-The official FlustixRes Website
+a website
