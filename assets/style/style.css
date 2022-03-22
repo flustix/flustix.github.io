@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #332729;
+}
+
+.relative {
+    position: relative;
+}
+
+.center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centerX {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centerY {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#logo {
+    width: 90%;
+}
+
+#mainBox {
+    width: 100%;
+    height: 100vh;
+}
+
+.socialIcon {
+    width: 40px;
+    border-radius: 20%;
+}
+
+#iconBox {
+    width: max-content;
+}
+
+@media not screen and (max-width: 1000px) {
+    #logo {
+        width: 500px;
+    }
+
+    .socialIcon {
+        width: 64px;
+    }
+}

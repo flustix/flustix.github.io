@@ -1,56 +1,31 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Flustixx' Projects</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <link rel="stylesheet" href="assets/style/fonts.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/img/fav.png">
+  <title>Flustix' Website</title>
 </head>
 
-<body onclick="location='home'">
-    <h1 onclick="location='home'" class="title">Hi, i'm Flustixx.</h1>
-    <p onclick="location='home'" class="subtitle">An error occured trying to load the subtitle.</p>
+<body>
+  <div id="mainBox">
+    <div id="contentBox" class="relative center">
+      <div id="logoBox">
+        <img src="assets/img/banner.png" alt="logo" id="logo" class="relative centerX">
+      </div>
 
-    <script>
-      const getJSON = async url => {
-        try {
-          const response = await fetch(url);
-          if(!response.ok) {
-            throw new Error(response.statusText);
-          }
-          const data = await response.json();
-          return data;
-        } catch(error) {
-          return error;
-        }
-      }
-
-      getJSON("subtitles.json").then(data => {
-        var subtitles = data.subtitles;
-
-        console.log("fetched subtitles, size: "+data.subtitles.length);
-
-        var subtitle_index = Math.floor(Math.random()*subtitles.length);
-        var subtitle = subtitles[subtitle_index];
-
-        var subtitle_element = document.getElementsByClassName("subtitle")[0];
-
-        subtitle_element.innerHTML = subtitle.text;
-        if(subtitle.color != null || subtitle.color != undefined) {
-          subtitle_element.style.color = subtitle.color;
-        }
-        console.log("picked subtitle "+subtitle_index+": "+subtitle.text);
-      }).catch(error => {
-        console.error("failed to fetch subtitles: "+error);
-      });
-    </script>
-
-    <script>
-        var timer = setTimeout(function() {
-            window.location='home'
-        }, 6000);
-    </script>
+      <div id="iconBox" class="centerX relative">
+        <a href="https://discord.gg/GaKKeWg"><img src="assets/img/social/discord.png" alt="discord" class="socialIcon"></a>
+        <a href="https://www.youtube.com/channel/UCNwLbqR8vwa4F2Bs4YL9hOw"><img src="assets/img/social/youtube.png" alt="youtube" class="socialIcon"></a>
+        <a href="https://twitch.tv/flustix_"><img src="assets/img/social/twitch.png" alt="twitch" class="socialIcon"></a>
+        <a href="https://twitter.com/flustix_"><img src="assets/img/social/twitter.png" alt="twitter" class="socialIcon"></a>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
