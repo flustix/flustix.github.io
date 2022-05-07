@@ -1,56 +1,87 @@
-* {
-    margin: 0;
-    padding: 0;
+:root {
+    --accent: #e38d5f;
+    --accent2: #f8e4d8;
+    --accentbg: #332729;
 }
 
 body {
-    background-color: #332729;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    text-align: center;
+    font-family: Riffic;
+    color: var(--accent);
 }
 
-.relative {
-    position: relative;
+*:visited,
+*:link {
+    color: var(--accent2);
+    text-decoration: none;
 }
 
-.center {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.centerX {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.centerY {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-#logo {
+.title {
     width: 90%;
+    display: flexbox;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#mainBox {
-    width: 100%;
-    height: 100vh;
+.catTitle {
+    color: var(--accent2);
+}
+
+.titleBanner {
+    height: 80px;
+}
+
+.box {
+    margin: 0 auto 30px auto;
 }
 
 .socialIcon {
-    width: 40px;
-    border-radius: 20%;
+    height: 60px;
+    margin: 5px 15px 5px 15px;
+    transition: all 0.2s;
 }
 
-#iconBox {
-    width: max-content;
+.socialIcon:hover {
+    height: 70px;
+    margin: 0 10px 0 10px;
 }
 
-@media not screen and (max-width: 1000px) {
-    #logo {
-        width: 500px;
-    }
+.projectBox {
+    display: inline-block;
+    width: 400px;
+    height: 200px;
+    border-radius: 15px;
+    box-shadow: 5px 5px var(--accent);
+    background-color: var(--accentbg);
+    margin: 10px;
+    transition: all 0.2s;
+    text-decoration: none !important;
+}
 
-    .socialIcon {
-        width: 64px;
+.projectsBox div:hover {
+    box-shadow: 5px 5px var(--accent2);
+}
+
+.projectBox p {
+    margin-bottom: 0;
+}
+
+.projectTitle {
+    font-size: 32px;
+    color: var(--accent);
+}
+
+@media screen and not (max-width: 1000px) {
+    .title {
+        width: 900px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 }
