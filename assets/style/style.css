@@ -54,7 +54,7 @@ body {
 
 .projectBox {
     display: inline-block;
-    width: 400px;
+    width: 90%;
     height: 200px;
     border-radius: 15px;
     box-shadow: 5px 5px var(--accent);
@@ -83,5 +83,9 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .projectBox {
+        width: 400px;
     }
 }
