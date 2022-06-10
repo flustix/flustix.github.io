@@ -7,5 +7,5 @@ function parallax(m) {
     var mouseX = m.clientX;
     var mouseY = m.clientY;
 
-    document.body.style.backgroundPosition = `${50 - (mouseX - windowW) * 0.01}% ${50 - (mouseY - windowH) * 0.01}%`;
+    document.body.style.backgroundPosition = `${50 + (mouseX - windowW) * 0.01}% ${50 + (mouseY - windowH) * 0.01}%`;
 }
