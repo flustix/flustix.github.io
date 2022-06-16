@@ -54,7 +54,7 @@ body {
 .socialIcon {
     height: 60px;
     margin: 5px 15px 5px 15px;
-    transition: all 0.2s;
+    transition: all 0.1s cubic-bezier(.65,.05,.36,1);
 }
 
 .socialIcon:hover {
