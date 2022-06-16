@@ -6,7 +6,7 @@
 
 body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/bg.jpg');
-    background-size: 110%;
+    background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -97,5 +97,11 @@ body {
 
     .projectBox {
         width: 400px;
+    }
+}
+
+@media screen and not (max-width: 1500px) {
+    body {
+        background-size: 110%;
     }
 }
