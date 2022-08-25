@@ -16,6 +16,10 @@ body {
     color: var(--accent);
 }
 
+*:hover {
+    text-decoration: none;
+}
+
 *:visited,
 *:link {
     color: var(--accent2);
@@ -70,12 +74,24 @@ body {
     box-shadow: 5px 5px var(--accent);
     background-color: var(--accentbg);
     margin: 10px;
-    transition: all 0.2s;
+    transition: width 0.2s, box-shadow 0.2s;
     text-decoration: none !important;
+
+    background-repeat: no-repeat;
+    background-size: auto 200px;
+    background-position: right center;
 }
 
-.projectsBox div:hover {
+.projectBox:hover {
     box-shadow: 5px 5px var(--accent2);
+}
+
+.projectImageOverlay {
+    border-radius: 15px;
+    margin-bottom: -200px;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(90deg, var(--accentbg) 60%, rgba(0, 0, 0, 0.5));
 }
 
 .projectBox p {
